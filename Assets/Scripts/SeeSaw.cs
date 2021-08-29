@@ -18,7 +18,6 @@ public class SeeSaw : MonoBehaviour
     {
         eularAngle = transform.localEulerAngles.z;
 
-
         if(transform.localEulerAngles.z > 45 && transform.localEulerAngles.z < 90)
         {
             transform.localEulerAngles = new Vector3(0, 0, 45);
