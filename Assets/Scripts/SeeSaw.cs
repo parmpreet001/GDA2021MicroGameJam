@@ -13,10 +13,10 @@ public class SeeSaw : MonoBehaviour
         get { return velocity; }
         set
         {
-            if (value <= -3)
-                velocity = -3;
-            else if (value >= 3)
-                velocity = 3;
+            if (value <= -5)
+                velocity = -5;
+            else if (value >= 5)
+                velocity = 5;
             else
                 velocity = value;
         }
@@ -47,18 +47,18 @@ public class SeeSaw : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Velocity += Input.GetAxisRaw("Vertical") * Time.deltaTime * 2f;
-        if(Input.GetAxisRaw("Vertical") == 0)
+        Velocity += Input.GetAxisRaw("Horizontal") * Time.deltaTime * 2f;
+        if(Input.GetAxisRaw("Horizontal") == 0)
         {
             if (Velocity <= 0.25 && Velocity >= -0.25)
                 Velocity = 0;
             else if (Velocity < 0)
-                Velocity += 0.1f;
+                Velocity += 0.2f;
             else if (Velocity > 0)
-                Velocity -= 0.1f;
+                Velocity -= 0.2f;
         }
 
-        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z + Velocity);
+        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z - Velocity);
 
     }
 
