@@ -9,7 +9,7 @@ public class nikorb : MonoBehaviour
     void Start()
     {
 
-        float xCord = Random.Range(0.1f, 3.0f);
+        float xCord = Random.Range(2.6f, 3.5f);
 
         if (Random.Range(0,10) % 2 == 0) {
             xCord = xCord * -1;
