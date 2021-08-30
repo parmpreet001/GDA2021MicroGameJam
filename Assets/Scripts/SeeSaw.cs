@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SeeSaw : MonoBehaviour
 {
-    private int winRange = 15; //The absolute value of the seesaw's z rotation has to be within this value for the win condition
-    private float winTime = 1f; //How long the see saw has to be within the winrange to satisfy the win condition
+    public bool nikoBallOnSeeSaw = false; //whether the niko ball is on the seesaw
+    public GameObject nikoBall;
 
     public float velocity;
     public float Velocity
@@ -20,12 +20,6 @@ public class SeeSaw : MonoBehaviour
             else
                 velocity = value;
         }
-    }
-    public bool isPressingButtons = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -42,9 +36,6 @@ public class SeeSaw : MonoBehaviour
             velocity = 0;
            transform.localEulerAngles = new Vector3(0, 0, 315);
         }
-
-
-
     }
 
     private void FixedUpdate()
@@ -60,9 +51,34 @@ public class SeeSaw : MonoBehaviour
                 Velocity -= 0.03f;
         }
 
-        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z - Velocity);
+        if(nikoBallOnSeeSaw)
+        {
+            transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z - Velocity
+                - nikoBall.transform.position.x / 10);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z - Velocity);
+        }
+
+        
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Circle")
+        {
+            nikoBallOnSeeSaw = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Circle")
+        {
+            nikoBallOnSeeSaw = false;
+        }
+    }
 
 }
