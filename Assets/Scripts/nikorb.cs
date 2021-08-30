@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class nikorb : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private float YCoord;
+    private TextMeshProUGUI TextPro;
     // Start is called before the first frame update
     void Start()
     {
 
+        TextPro = GameObject.Find("Tutorial").GetComponent<TextMeshProUGUI>();
         float xCord = Random.Range(2.6f, 3.5f);
 
         if (Random.Range(0,10) % 2 == 0) {
@@ -23,6 +27,11 @@ public class nikorb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        YCoord = transform.position.y;
+        if (YCoord <= -6.5) {
+            TextPro.text = "Ur bad";
+            
+            GameController.Instance.LoseGame();
+        }
     }
 }

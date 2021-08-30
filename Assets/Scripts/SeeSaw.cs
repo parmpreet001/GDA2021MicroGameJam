@@ -25,7 +25,6 @@ public class SeeSaw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(transform.localEulerAngles.z > 45 && transform.localEulerAngles.z < 90)
         {
             velocity = 0;
