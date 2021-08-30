@@ -6,7 +6,6 @@ public class SeeSaw : MonoBehaviour
 {
     public bool nikoBallOnSeeSaw = false; //whether the niko ball is on the seesaw
     public GameObject nikoBall;
-
     public float velocity;
     public float Velocity
     {

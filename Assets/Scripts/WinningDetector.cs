@@ -8,6 +8,7 @@ public class WinningDetector : MonoBehaviour
     private SpriteRenderer sprite;
     private TextMeshProUGUI TextPro;
     private bool onEnter = false;
+    private bool NikoWin = false;
     private float dtotal = 0.0f;
     private int difficile = 1;
     // Start is called before the first frame update
@@ -52,7 +53,10 @@ public class WinningDetector : MonoBehaviour
         if (onEnter){
             if ((GameController.Instance.gameTime - dtotal) >= difficile ) {
                 TextPro.text = "You Did It, Parmpreet!";
-                GameController.Instance.WinGame();
+                if (!NikoWin) {
+                    GameController.Instance.WinGame();
+                    NikoWin = true;
+                }
             }
         }
     }
