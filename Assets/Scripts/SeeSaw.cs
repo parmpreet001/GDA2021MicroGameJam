@@ -34,10 +34,12 @@ public class SeeSaw : MonoBehaviour
 
         if(transform.localEulerAngles.z > 45 && transform.localEulerAngles.z < 90)
         {
+            velocity = 0;
             transform.localEulerAngles = new Vector3(0, 0, 45);
         }
         else if (transform.localEulerAngles.z < 315 && transform.localEulerAngles.z > 270)
         {
+            velocity = 0;
            transform.localEulerAngles = new Vector3(0, 0, 315);
         }
 
@@ -50,12 +52,12 @@ public class SeeSaw : MonoBehaviour
         Velocity += Input.GetAxisRaw("Horizontal") * Time.deltaTime * 2f;
         if(Input.GetAxisRaw("Horizontal") == 0)
         {
-            if (Velocity <= 0.25 && Velocity >= -0.25)
+            if (Velocity <= 0.1 && Velocity >= -0.1)
                 Velocity = 0;
             else if (Velocity < 0)
-                Velocity += 0.2f;
+                Velocity += 0.03f;
             else if (Velocity > 0)
-                Velocity -= 0.2f;
+                Velocity -= 0.03f;
         }
 
         transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z - Velocity);
