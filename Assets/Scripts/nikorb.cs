@@ -31,10 +31,8 @@ public class nikorb : MonoBehaviour
         YCoord = transform.position.y;
         if (YCoord <= -6.5) {
             TextPro.text = "Ur bad";
-            if (NikoDead = false){
-                GameController.Instance.LoseGame(); //remind Naman and co abt this
-                NikoDead = true;
-            }
+            GameController.Instance.LoseGame(); //remind Naman and co abt this
+            
         }
     }
 }
