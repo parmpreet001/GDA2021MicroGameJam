@@ -8,6 +8,7 @@ public class nikorb : MonoBehaviour
     private Rigidbody2D rb;
     private float YCoord;
     private TextMeshProUGUI TextPro;
+    private bool NikoDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +31,10 @@ public class nikorb : MonoBehaviour
         YCoord = transform.position.y;
         if (YCoord <= -6.5) {
             TextPro.text = "Ur bad";
-            
-            GameController.Instance.LoseGame();
+            if (NikoDead = false){
+                GameController.Instance.LoseGame(); //remind Naman and co abt this
+                NikoDead = true;
+            }
         }
     }
 }
