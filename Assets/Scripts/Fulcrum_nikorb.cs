@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class nikorb : MonoBehaviour
+public class Fulcrum_nikorb : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float YCoord;
